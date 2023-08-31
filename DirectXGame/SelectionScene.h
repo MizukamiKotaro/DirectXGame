@@ -130,6 +130,11 @@ private: // メンバ変数
 	std::unique_ptr<Sprite> exit_;
 	//std::unique_ptr<Sprite> speed_;
 
+	std::unique_ptr<Sprite> pianoFa_;
+	std::unique_ptr<Sprite> pianoDo_;
+	std::vector<uint32_t> soundHandles_;
+
+
 	std::unique_ptr<Sprite> b_;
 	std::unique_ptr<Sprite> y_;
 

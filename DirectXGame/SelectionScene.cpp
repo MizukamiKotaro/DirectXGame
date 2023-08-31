@@ -56,8 +56,12 @@ void SelectionScene::SelectUpDate() {
 		if (input_->TriggerKey(DIK_SPACE)) {
 			state_ = State::kSet;
 			setSelect_ = SetSelect::kPlay;
+
+			audio_->PlayWave(soundHandles_[0]);
 		} else if (input_->TriggerKey(DIK_RIGHT) || input_->TriggerKey(DIK_D)) {
 			stage_ = Stage::kOrary;
+
+			audio_->PlayWave(soundHandles_[0]);
 		}
 		break;
 	case SelectionScene::Stage::kOrary:
@@ -65,12 +69,14 @@ void SelectionScene::SelectUpDate() {
 		if (input_->TriggerKey(DIK_SPACE)) {
 			state_ = State::kSet;
 			setSelect_ = SetSelect::kPlay;
+			audio_->PlayWave(soundHandles_[0]);
 		} 
 		/*else if (input_->TriggerKey(DIK_RIGHT) || input_->TriggerKey(DIK_D)) {
 			stage_ = Stage::kMi0;
 		}*/
 		else if (input_->TriggerKey(DIK_LEFT) || input_->TriggerKey(DIK_A)) {
 			stage_ = Stage::kSakuraSakura;
+			audio_->PlayWave(soundHandles_[1]);
 		}
 
 		break;
@@ -167,16 +173,20 @@ void SelectionScene::SelectionUpdate() {
 			
 			if (input_->TriggerKey(DIK_SPACE)) {
 				transitionRequest_ = Transition::kToBlack;
+				audio_->PlayWave(soundHandles_[0]);
 
 			}else if (input_->TriggerKey(DIK_LEFT) || input_->TriggerKey(DIK_A)) {
 				setSelect_ = SetSelect::kEzit;
+				audio_->PlayWave(soundHandles_[1]);
 			}
 		}else {
 			if (input_->TriggerKey(DIK_SPACE)) {
 				state_ = State::kSelect;
 				setSelect_ = SetSelect::kPlay;
+				audio_->PlayWave(soundHandles_[0]);
 			} else if (input_->TriggerKey(DIK_RIGHT) || input_->TriggerKey(DIK_D)) {
 				setSelect_ = SetSelect::kPlay;
+				audio_->PlayWave(soundHandles_[0]);
 			}
 		}
 		
@@ -187,6 +197,7 @@ void SelectionScene::SelectionUpdate() {
 		if (input_->TriggerKey(DIK_SPACE)) {
 			state_ = State::kSet;
 			setSelect_ = SetSelect::kPlay;
+			audio_->PlayWave(soundHandles_[0]);
 		} else if (input_->TriggerKey(DIK_RIGHT) || input_->TriggerKey(DIK_D)) {
 			if (speedNum != 9) {
 				speedNum++;
@@ -256,7 +267,11 @@ void SelectionScene::Initialize() {
 	    {WinApp::kWindowWidth / 2, WinApp::kWindowHeight / 2 + 200}, {1.0f, 1.0f, 1.0f, 1.0f},
 	    {0.5f, 0.5f}));*/
 
-	
+	uint32_t soundHandle = audio_->LoadWave("doC4.wav");
+	soundHandles_.push_back(soundHandle);
+	soundHandle = audio_->LoadWave("faF3.wav");
+	soundHandles_.push_back(soundHandle);
+
 }
 
 void SelectionScene::SelectionSceneInitialize() {

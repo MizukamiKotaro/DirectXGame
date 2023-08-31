@@ -214,6 +214,8 @@ void GameScene::GameSceneInitialize() {
 
 	score_.Reset();
 	hitCount_ = 0;
+
+	play_ = Play::kExtra;
 }
 
 void GameScene::LoadEnemyPopData() {
@@ -522,6 +524,7 @@ void GameScene::ExtraUpdate() {
 
 	if (countFrame_ == 80) {
 		playRequest_ = Play::kPlay;
+		countFrame_ = 0;
 	}
 }
 
@@ -602,9 +605,9 @@ void GameScene::PUpdate() {
 		return false;
 	});
 
-	/*if (input_->TriggerKey(DIK_P)) {
+	if (input_->TriggerKey(DIK_P)) {
 		playRequest_ = Play::kPose;
-	}*/
+	}
 
 	if (countFrame_ == musicEndFrame_) {
 		playRequest_ = Play::kFinish;

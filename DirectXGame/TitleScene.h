@@ -90,6 +90,8 @@ private: // メンバ変数
 	int kInterval_ = 40;
 	bool isDo_ = false;
 
+
+
 	std::vector<uint32_t> soundHandles_;
 
 	ViewProjection viewProjection_;
