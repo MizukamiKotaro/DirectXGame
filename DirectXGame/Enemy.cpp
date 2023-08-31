@@ -2,13 +2,15 @@
 #include <cassert>
 
 void Enemy::Initialize(
-    const Vector3& position, const int& frame, const int& soundType, Model* model) {
+    const Vector3& position, const int& frame, const int& soundType, const int& laneNum,
+    Model* model) {
 
 	assert(model);
 	model_ = model;
 
 	frame_ = frame;
 	soundType_ = soundType;
+	laneNum_ = laneNum;
 
 	worldTransform_.Initialize();
 	worldTransform_.translation_ = position;
@@ -32,5 +34,4 @@ void Enemy::Update(const float& speed) {
 
 void Enemy::Draw(const ViewProjection& viewProjection) {
 	model_->Draw(worldTransform_, viewProjection);
-
 }

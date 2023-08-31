@@ -8,7 +8,7 @@ public:
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	void Initialize(const Vector3& position, const int& frame, const int& soundType, Model* model);
+	void Initialize(const Vector3& position, const int& frame, const int& soundType, const int& laneNum, Model* model);
 
 	/// <summary>
 	/// 更新
@@ -24,6 +24,8 @@ public:
 	int GetFrame() { return frame_; }
 
 	int GetSoundType() { return soundType_; }
+
+	int GetLaneNum() { return laneNum_; }
 
 	void Dead() { isDead_ = true; }
 
@@ -42,6 +44,8 @@ private:
 	int frame_ = 0;
 
 	int soundType_ = 0;
+
+	int laneNum_ = 0;
 
 	bool isDead_ = false;
 	
